@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', 'Alex Brush', cursive;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --color-primary-bg: #122A16;
+  --color-secondary-bg: #1B3B21;
+  --color-envelope: #285233;
+  --color-envelope-deep: #183820;
+  --color-wax: #24492E;
+  --color-wax-dark: #14301A;
+  --color-mint: #ADEBB3;
+  --color-mint-light: #D4F7DA;
+  --color-gold: #C5A880;
+  --color-gold-light: #E5DAC8;
+  --color-gold-dark: #9E825D;
+  --color-ivory: #F7F9F5;
+  --color-text-muted: #B8D9BF;
+  --color-card-bg: #FCFDFB;
+  --color-card-text: #14301A;
+  --color-sage: #93B29B;
+  --color-herbal: #4D7554;
+}
+
+/* Base custom styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #122A16;
+  color: #F7F9F5;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(rgba(173, 235, 179, 0.12) 1px, transparent 1px),
+    radial-gradient(rgba(197, 168, 128, 0.08) 1px, #122A16 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Custom luxury mint herbal scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #122A16;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ADEBB3 0%, #4D7554 50%, #173C1F 100%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #285233;
+}
+
+/* Luxury 24k Gold Foil Gradient Text */
+.gold-foil-text {
+  background: linear-gradient(135deg, #9E825D 0%, #C5A880 25%, #FFF4DF 50%, #C5A880 75%, #7D6442 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-foil-subtle {
+  background: linear-gradient(135deg, #7D6442 0%, #C5A880 50%, #7D6442 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botanical Watercolor Card Shadow */
+.luxury-paper-card {
+  background: #FCFDFB;
+  color: #1E3329;
+  border: 1px solid rgba(197, 168, 128, 0.45);
+  box-shadow: 
+    0 24px 60px -15px rgba(10, 20, 14, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset,
+    0 0 20px rgba(143, 168, 155, 0.06) inset;
+}
+
+/* Gold Shimmer Sweep Animation */
+@keyframes goldShimmer {
+  0% { transform: translateX(-150%) rotate(25deg); }
+  100% { transform: translateX(250%) rotate(25deg); }
+}
+
+.gold-shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.gold-shimmer-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 244, 223, 0.35) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: goldShimmer 5s infinite;
+  pointer-events: none;
+}
+
+/* 3D Envelope Perspective & Flip */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Explicit typography classes for guaranteed rendering across devices */
+.font-script {
+  font-family: 'Great Vibes', 'Alex Brush', cursive !important;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif !important;
+}
+
+.font-sans {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Keyframes and Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px rgba(46, 72, 57, 0.35);
+  }
+  50% {
+    transform: scale(1.035);
+    box-shadow: 0 8px 24px rgba(46, 72, 57, 0.6);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(1.5deg); }
+}
+
+.animate-float-slow {
+  animation: floatGentle 6s ease-in-out infinite;
+}
